@@ -32,6 +32,10 @@ configure_file(${SRCCOMPLEXITY_TESTFILE} ${SRCCOMPLEXITY_TESTFILE} COPYONLY)
 add_custom_target(run DEPENDS srcComplexity
                       COMMAND ./srcComplexity ${SRCCOMPLEXITY_TESTFILE})
 
+# strip executables and shared libraries
+# Verify that it works
+set(CPACK_STRIP_FILES ON)
+
 set(CPACK_PACKAGE_NAME "srccomplexity")
 set(CPACK_PACKAGE_VERSION_MAJOR "1")
 set(CPACK_PACKAGE_VERSION_MINOR "0")
