@@ -40,6 +40,13 @@ set(CPACK_STRIP_FILES ON)
 set(CPACK_RESOURCE_FILE_LICENSE ${CMAKE_SOURCE_DIR}/COPYING.txt)
 install(FILES ${CMAKE_SOURCE_DIR}/COPYING.txt DESTINATION share/doc/srccomplexity RENAME copyright)
 
+# Description
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Calculate source code complexity")
+file(WRITE ${CMAKE_BINARY_DIR}/description.txt
+"srcComplexity Hi
+")
+set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_BINARY_DIR}/description.txt)
+
 include(GNUInstallDirs)
 
 set(CPACK_PACKAGE_NAME "srccomplexity")
