@@ -36,6 +36,10 @@ add_custom_target(run DEPENDS srcComplexity
 # Verify that it works
 set(CPACK_STRIP_FILES ON)
 
+# Copyright file
+set(CPACK_RESOURCE_FILE_LICENSE ${CMAKE_SOURCE_DIR}/COPYING.txt)
+install(FILES ${CMAKE_SOURCE_DIR}/COPYING.txt DESTINATION share/doc/srccomplexity RENAME copyright)
+
 include(GNUInstallDirs)
 
 set(CPACK_PACKAGE_NAME "srccomplexity")
