@@ -10,4 +10,13 @@ workflows:
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - welcome/run
+        build:
+          docker:
+            - image: srcml/ubuntu_x86_64_base
+          steps:
+            - checkout
+            - run: apt-get update
+            - run: mkdir build
+            - run: cd build && cmake -DCMAKE_BUILD_TYPE=Release .. -G Ninja
+            - run: cd build && ninja && ninja install && ldconfig
+            - run: cd build && ninja run
